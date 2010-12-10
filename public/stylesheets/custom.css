@@ -1,6 +1,6 @@
 body {
   background-color:#FFFFFF;
-  background-image:url(https://s3.amazonaws.com/amf_boxoffice/images/tile_header.png);
+  background-image:url(../images/tile_header.png);
   background-repeat:repeat-x;
   color: #353535;
   margin:0;
@@ -317,12 +317,8 @@ a:hover {
   text-decoration: none;
 }
 
-#footer {width:950px;margin-right:0 auto;margin-left:15%;clear:both;padding:20px 2em 0 20px;}
+#footer {width:75%;margin-right:0 auto;margin-left:15%;clear:both;padding:20px 2em 0 20px;}
 
-#dinner a img {
-  display:none;
-}
-
-#dinner a:hover img {
-  display:block;
+*|*:-moz-any-link img, img[usemap], object[usemap] {
+border:none;
 }

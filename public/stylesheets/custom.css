@@ -1,7 +1,9 @@
 body {
   background-color:#FFFFFF;
-  background-image:url(../images/tile_header.png);
-  background-repeat:repeat-x;
+  background-image:url(https://s3.amazonaws.com/amf_boxoffice/images/tile-y.png);
+  background-repeat:repeat-y;
+  background-position: right;
+  z-index:1000;
   color: #353535;
   margin:0;
 }
@@ -210,8 +212,8 @@ background-color: transparent;
   font: small-caps 35px/35px "Helvetica", sans-serif;
   color: #353535;
   height: 108px;
-  width: 950px;
-  margin: 0 auto;
+  width: 97%;
+  margin-left: 0 auto;
 }
 #banner img {
   float: left;
@@ -225,7 +227,7 @@ background-color: transparent;
   padding-top: 4ex;
   padding-left: 2em;
   background: white;
-  width: 37%;
+  width: 30%;
   float:left;
   margin-right:10px;
 }
@@ -233,7 +235,7 @@ background-color: transparent;
   padding-top: 4ex;
   padding-left: 2em;
   background: white;
-  width: 37%;
+  width: 30%;
   float:left;
   margin-right:0;
 }
@@ -254,7 +256,6 @@ nav {
 nav ul {
   margin: 0;
   line-height: 1.6;
-  border-bottom: solid #555555 1px;
 }
 
 nav ul li {
@@ -321,4 +322,13 @@ a:hover {
 
 *|*:-moz-any-link img, img[usemap], object[usemap] {
 border:none;
+}
+
+#ur {
+  border: none;
+  margin: none;
+  padding: none;  
+  position:absolute;
+  top:0;
+  right:0;
 }

@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 20101116070400
+#
+# Table name: events
+#
+#  id          :integer         not null, primary key
+#  performer   :string(255)
+#  date        :string(255)
+#  time        :string(255)
+#  description :text
+#  image_url   :string(255)
+#  price       :decimal(8, 2)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  performer: MyString
+  date: MyString
+  time: MyString
+  description: MyText
+  image_url: MyString
+  price: 9.99
+
+two:
+  performer: MyString
+  date: MyString
+  time: MyString
+  description: MyText
+  image_url: MyString
+  price: 9.99

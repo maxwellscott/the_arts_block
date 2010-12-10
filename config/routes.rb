@@ -1,13 +1,48 @@
-TheArtsBlock::Application.routes.draw do
-    
-  get "pages/home"
+Boxoffice::Application.routes.draw do
 
-  root :to => 'pages#home'
+  get "cafe/index"
+  match 'cafe/index', :to => 'cafe#index'
+  match 'cafe', :to => 'cafe#index'
 
-  match '/home',     :to => 'pages#home'
-  match '/info',     :to => 'pages#info'
-  match '/blog',     :to => 'pages#blog'
-  match '/facebook', :to => 'pages#facebook'
+  get 'admin' => 'admin#index'
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
+  resources :payment_notifications
+
+  resources :users
+
+  resources :line_items
+
+  resources :carts
+  match 'clear', :to => 'carts#destroy'
+
+  resources :events
+
+  get "thanks/index"
+  match 'thanks/index',  :to => 'thanks#index', :as => 'thanks'
+  match 'thanks',  :to => 'thanks#index', :as => 'thanks'
+
+  get "listing/index"
+  match 'listing',  :to => 'listing#index'
+  match 'listing/index',  :to => 'listing#index'
+  match 'shows', :to => 'listing#index'
+
+  match "/home"      => redirect("http://artsandmusicfactory.com")
+  match "/artists"      => redirect("http://artsandmusicfactory.com/artists.html")
+  match "/galleries"      => redirect("http://artsandmusicfactory.com/galleries.html")
+  match "/musicians"      => redirect("http://artsandmusicfactory.com/musicians.html")
+  match "/studio"      => redirect("http://artsandmusicfactory.com/pushkin-studio.html")
+  match "/galleries"      => redirect("http://artsandmusicfactory.com/galleries.html")
+  match "/store"      => redirect("http://music.artsandmusicfactory.com/")
+  match "/blog"      => redirect("http://artsandmusicfactory.com/blog/")
+  match "/info"      => redirect("http://artsandmusicfactory.com/info.html")
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -59,6 +94,7 @@ TheArtsBlock::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
+  # root :to => 'listing#index', :as => 'listing'
 
   # See how all your routes lay out with "rake routes"
 

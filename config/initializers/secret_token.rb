@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-TheArtsBlock::Application.config.secret_token = '93332d12e24cc32fc74e8fdf31c2b38d30edf2d1e4954c8f17a57c90a4c9f0a904a7a1e67b99959455a816284f957952d75c48f48e92c18ff6135bf574eec61c'
+Boxoffice::Application.config.secret_token = 'f6ef9618aceaa794e90dd993f3407baab28676e950c0694ed0b226022350655e3afc125a095033bf98fc2c6396e415b495d113c4f5868babe30ed5663da48359'

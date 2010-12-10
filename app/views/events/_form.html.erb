@@ -1,0 +1,85 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :performer %><br />
+    <%= f.text_field :performer %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website %><br />
+  </div>
+  <div class="field">
+    <%= f.label :performertwo %><br />
+    <%= f.text_field :performertwo %>
+  </div>
+  <div class="field">
+    <%= f.label :sitetwo %><br />
+    <%= f.text_field :sitetwo %><br />
+  </div>
+  <div class="field">
+    <%= f.label :performerthree %><br />
+    <%= f.text_field :performerthree %>
+  </div>
+  <div class="field">
+    <%= f.label :sitethree %><br />
+    <%= f.text_field :sitethree %><br />
+  </div>
+  <div class="field">
+    <%= f.label :performerfour %><br />
+    <%= f.text_field :performerfour %>
+  </div>
+  <div class="field">
+    <%= f.label :sitefour %><br />
+    <%= f.text_field :sitefour %><br />
+  </div>
+  <div class="field">
+    <%= f.label :performerfive %><br />
+    <%= f.text_field :performerfive %>
+  </div>
+  <div class="field">
+    <%= f.label :sitefive %><br />
+    <%= f.text_field :sitefive %><br />
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= f.text_field :priority %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br />
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :rows => 6 %>
+  </div>
+  <div class="field">
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :pushkin %><br />
+    <%= f.check_box :pushkin %><br />
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-TheArtsBlock::Application.config.session_store :cookie_store, :key => '_the_arts_block_session'
+Boxoffice::Application.config.session_store :cookie_store, :key => '_boxoffice_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rake db:sessions:create")
-# TheArtsBlock::Application.config.session_store :active_record_store
+# Boxoffice::Application.config.session_store :active_record_store

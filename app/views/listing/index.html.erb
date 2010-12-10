@@ -1,0 +1,41 @@
+<% if flash[:notice] %>
+  <div id="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<div id="cart">
+  <%= render @cart %>
+</div>
+<h4 colspan="2" style="text-align:center;color:#bf7a7a;margin:0;padding-top:10px;"><i>******buy tickets online and have your name & party size automatically added to the guest list******</i></h4>
+<div id="main">
+  <h1>Live @ The Arts Block     <%= image_tag("artsblock.png") %></h1>
+  <% @events.each do |event| %>
+    <div class="entry" >
+    <%= link_to image_tag(event.image_url), event.image_url %>
+    <h3><%= event.date %> | <%= link_to event.performer, event.website %></h3>
+    <h4><%= link_to event.performertwo, event.sitetwo %></h4>
+    <h4><%= link_to event.performerthree, event.sitethree %></h4>
+    <h4><%= link_to event.performerfour, event.sitefour %></h4>
+    <h4><%= link_to event.performerfive, event.sitefive %></h4>
+    <span><%= event.time %></span>
+    <div style="margin-top: 10px;margin-left: 10px;">
+      <i><%=sanitize event.description %></i>
+    </div>
+      <div class="price_line" >
+      <span class="price" >
+        <% if event.price > 5 %>
+        <%= number_to_currency(event.price) %>
+        <%= button_to 'Add to Cart', line_items_path(:event_id => event), :remote => true %>
+        <% else %>
+        <%= "no cover" %>
+        <% end %>
+      </span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div id="main_right">
+  <h1>Live @ The Pushkin     <%= image_tag("pushkin.png")%></h1>
+  <h3><i>coming soon...</i><h3>
+</div>

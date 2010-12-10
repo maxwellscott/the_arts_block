@@ -8,7 +8,7 @@
 </div>
 <h4 colspan="2" style="text-align:center;color:#bf7a7a;margin:0;padding-top:5px;padding-right:12em;"><i>*buy tickets online and have your name & party size automatically added to the guest list*</i></h4>
 <div id="main">
-  <h1>Live @ The Arts Block     <%= image_tag("artsblock.png") %></h1>
+  <h1>Live @ The Arts Block <%= image_tag("artsblock.png") %></h1>
   <% @events.each do |event| %>
     <div class="entry" >
     <%= link_to image_tag(event.image_url), event.image_url %>
@@ -36,6 +36,6 @@
 </div>
 
 <div id="main_right">
-  <h1>Live @ The Pushkin     <%= image_tag("pushkin.png")%></h1>
+  <h1>Live @ The Pushkin <%= image_tag("pushkin.png")%></h1>
   <h3><i>coming soon...</i><h3>
 </div>

@@ -33,16 +33,7 @@ Boxoffice::Application.routes.draw do
 
   match 'shows', :to => 'listing#index'
 
-  match "/home"      => redirect("http://artsandmusicfactory.com")
-  match "/artists"      => redirect("http://artsandmusicfactory.com/artists.html")
-  match "/galleries"      => redirect("http://artsandmusicfactory.com/galleries.html")
-  match "/musicians"      => redirect("http://artsandmusicfactory.com/musicians.html")
-  match "/studio"      => redirect("http://artsandmusicfactory.com/pushkin-studio.html")
-  match "/galleries"      => redirect("http://artsandmusicfactory.com/galleries.html")
-  match "/store"      => redirect("http://music.artsandmusicfactory.com/")
-  match "/blog"      => redirect("http://artsandmusicfactory.com/blog/")
-  match "/info"      => redirect("http://artsandmusicfactory.com/info.html")
-
+  match "/home"      => redirect("http://theartsblock.com")
 
 
   # The priority is based upon order of creation:

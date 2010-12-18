@@ -340,3 +340,14 @@ border:none;
 		width: 64%;
 		margin: 0 auto;
 		}
+
+.weekly a img {
+  width: 100px;
+}
+
+.weekly a:hover img {
+  width: 300px;
+}
+.description {
+  margin-top: 10px;
+}

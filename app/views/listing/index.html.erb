@@ -3,16 +3,25 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
-<div id="cart">
-  <%= render @cart %>
-</div>
 <h4 colspan="2" style="text-align:center;color:#bf7a7a;margin:0;padding-top:5px;padding-right:12em;"><i>*buy tickets online and have your name & party size automatically added to the guest list*</i></h4>
+<table style="width:68%;border:1px solid black;position:relative;left:2em;">
+<th colspan="7"><u>Regular Weekly Events</u></th>
+<tr>
+  <td>Sunday</td>
+  <td>Monday</td>
+  <td>Tuesday</td>
+  <td>Wednesday</td>
+  <td>Thursday</td>
+  <td>Friday</td>
+  <td>Saturday</td>
+</tr>
+</table>
 <div id="main">
   <h1>Live @ The Arts Block <%= image_tag("artsblock.png") %></h1>
   <% @events.each do |event| %>
     <div class="entry" >
     <%= link_to image_tag(event.image_url), event.image_url %>
-    <h3><%= event.date %> | <%= link_to event.performer, event.website %></h3>
+    <h3><u><%= event.date %></u><br /><%= link_to event.performer, event, :method => :get %><%= link_to event.performer, event.website %></h3>
     <h4><%= link_to event.performertwo, event.sitetwo %></h4>
     <h4><%= link_to event.performerthree, event.sitethree %></h4>
     <h4><%= link_to event.performerfour, event.sitefour %></h4>
@@ -23,11 +32,15 @@
     </div>
       <div class="price_line" >
       <span class="price" >
-        <% if event.price > 5 %>
+        <% if event.price > 4 && event.price < 6 %>
         <%= number_to_currency(event.price) %>
-        <%= button_to 'Add to Cart', line_items_path(:event_id => event), :remote => true %>
+        <% elsif event.price > 6 %>
+        <%= number_to_currency(event.price) %>
         <% else %>
         <%= "no cover" %>
+        <% end %>
+        <% if event.price > 6 && event.utc.to_i - Time.now.to_i > 15300 %>
+        <%= button_to 'Add to Cart', line_items_path(:event_id => event), :remote => true %>
         <% end %>
       </span>
       </div>

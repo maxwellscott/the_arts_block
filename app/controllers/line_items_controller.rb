@@ -50,7 +50,6 @@ class LineItemsController < ApplicationController
    event = Event.find(params[:event_id])
    @line_item = @cart.add_event(event.id)
 
-
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to(listing_url) }

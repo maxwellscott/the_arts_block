@@ -334,3 +334,8 @@ border:none;
   top:0;
   right:0;
 }
+
+#calendar {
+		width: 64%;
+		margin: 0 auto;
+		}

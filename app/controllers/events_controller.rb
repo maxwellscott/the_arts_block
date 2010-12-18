@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_filter :authorize, :only => [:index, :show]
   
   # GET /events
   # GET /events.xml
@@ -14,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.xml
   def show
+    @cart = current_cart
     @event = Event.find(params[:id])
 
     respond_to do |format|

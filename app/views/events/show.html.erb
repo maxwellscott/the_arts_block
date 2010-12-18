@@ -1,6 +1,11 @@
-<p id="notice"><%= notice %></p>
+<% if @cart %>
+<div id="cart">
+  <%= render @cart %>
+</div>
+<% end %>
 
-<p>
+<div style="padding-right:12em;width:64%;padding-left:14em;">
+<p style="margin-top:0;padding-top:0;">
   <b>Performer:</b>
   <%= @event.performer %>
 </p>
@@ -30,6 +35,21 @@
   <%= @event.price %>
 </p>
 
+      <div class="price_line" >
+      <span class="price" >
+        <% if @event.price > 4 && @event.price < 6 %>
+        <%= number_to_currency(@event.price) %>
+        <% elsif @event.price > 6 %>
+        <%= number_to_currency(@event.price) %>
+        <% else %>
+        <%= "no cover" %>
+        <% end %>
+        <% if @event.price > 6 && @event.utc.to_i - Time.now.to_i > 15300 %>
+        <%= button_to 'Add to Cart', line_items_path(:event_id => @event) %>
+        <% end %>
+      </span>
+      </div>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+</div>

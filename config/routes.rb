@@ -30,6 +30,7 @@ Boxoffice::Application.routes.draw do
   get "listing/index"
   match 'listing',  :to => 'listing#index'
   match 'listing/index',  :to => 'listing#index'
+
   match 'shows', :to => 'listing#index'
 
   match "/home"      => redirect("http://artsandmusicfactory.com")

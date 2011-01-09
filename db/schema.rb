@@ -10,71 +10,66 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101211214148) do
+ActiveRecord::Schema.define(:version => 20110106223234) do
 
   create_table "carts", :force => true do |t|
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.timestamp "purchased_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "purchased_at"
   end
 
   create_table "events", :force => true do |t|
-    t.string    "performer"
-    t.string    "date"
-    t.string    "time"
-    t.text      "description"
-    t.string    "image_url"
-    t.decimal   "price"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.boolean   "pushkin"
-    t.string    "website"
-    t.string    "performertwo"
-    t.string    "performerthree"
-    t.string    "sitetwo"
-    t.string    "sitethree"
-    t.string    "performerfour"
-    t.string    "sitefour"
-    t.string    "performerfive"
-    t.string    "sitefive"
-    t.integer   "priority"
-    t.datetime  "utc"
+    t.string   "name"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "price"
+    t.string   "main_act_url"
+    t.string   "opener_one"
+    t.string   "opener_one_url"
+    t.string   "opener_two"
+    t.string   "opener_two_url"
+    t.text     "description"
+    t.string   "image_url"
+    t.decimal  "door"
+    t.string   "youtube_url"
   end
 
   create_table "line_items", :force => true do |t|
-    t.integer   "event_id"
-    t.integer   "cart_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "quantity",   :default => 1
+    t.integer  "event_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity",   :default => 1
   end
 
   create_table "payment_notifications", :force => true do |t|
-    t.text      "params"
-    t.string    "status"
-    t.string    "transaction_id"
-    t.integer   "cart_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.text     "params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.integer  "cart_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pushkin_events", :force => true do |t|
-    t.string    "performer"
-    t.string    "date"
-    t.string    "time"
-    t.text      "description"
-    t.string    "image_url"
-    t.decimal   "price"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "performer"
+    t.string   "date"
+    t.string   "time"
+    t.text     "description"
+    t.string   "image_url"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "hash_password"
-    t.string    "salt"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "name"
+    t.string   "hash_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

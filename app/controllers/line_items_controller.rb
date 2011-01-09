@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-  skip_before_filter :authorize, :only => [:create, :destroy] 
+  skip_before_filter :authorize 
 
   # GET /line_items
   # GET /line_items.xml
@@ -52,7 +52,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to(listing_url) }
+        format.html { redirect_to(event_url) }
         format.js { @current_item = @line_item }
         format.xml { render :xml => @line_item, :status => :created, :location => @line_item }
       else
@@ -85,7 +85,7 @@ class LineItemsController < ApplicationController
     @line_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(listing_url, :notice => 'Ticket(s) removed from cart') }
+      format.html { redirect_to(calendar_path, :notice => 'Ticket(s) removed from cart') }
       format.xml  { head :ok }
     end
   end

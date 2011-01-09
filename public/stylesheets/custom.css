@@ -1,5 +1,10 @@
+*{
+	margin:0;
+	padding:0;
+}
+
 body {
-  background-color:#FFFFFF;
+  background-color:#f8f8f8;
   background-image:url(https://s3.amazonaws.com/amf_boxoffice/images/tile-y.png);
   background-repeat:repeat-y;
   background-position: right;
@@ -21,6 +26,8 @@ pre {
         margin-bottom: 2em;
         background-color: #f0f0f0;
         font: bold smaller sans-serif;
+        margin-right:20%;
+        margin-top:17px;
 }
 
 
@@ -43,6 +50,7 @@ pre {
 
 #event_list .list_image {
   width:        100px;
+  margin-top:   10px;
 }
 
 #event_list .list_description {
@@ -77,81 +85,98 @@ pre {
   background:   #999999;
 }
 
-/* An entry in the store catalog */
+/* individual event listings */
 
-#store {
-  display: block;
+#image_desc img {
+  width:        100px;
+  clear:        none;
+  position:     relative;
+  left:         0px;
+  top:          0px;
 }
 
-#store  .entry {
+#image_desc p {
+  position:     relative;
+  left:         10px;
+  top:          -5px;
+  padding-right: 20px;
+}
+
+#image_desc table {
+  margin-top:   10px;
+  border:        none;
+}
+
+.price {
+  color: #44a;
+  font-weight: bold;
+  margin-right: 2em;
+  padding-right: 1em;
+}
+/* An entry in the store catalog */
+
+.entry {
   overflow: auto;
   margin-top: 1em;
   border-bottom: 1px dotted #353535;
 }
 
-#store  .title {
+.title {
   font-size: 120%;
   font-family: sans-serif;
 }
 
-#store .entry img {
+.entry img {
   width: 100px;
   margin-right: 5px;
-  margin-bottom: 5px;
   float: left;
 }
 
 
-#store .entry h3 {
+.entry h3 {
  margin-top: 0;
  margin-bottom: 2px;
  color: #353535;
 }
 
-#store .entry h4 {
+.entry h4 {
  margin-top: -2px;
  margin-bottom: 2px;
  color: #353535;
 }
 
-#store .entry a {
+.entry a {
  color: #353535;
  text-decoration: none;
 }
 
-#store .entry a:hover {
- background-color: #ffffff;
+.entry a:hover {
+ background-color: #f8f8f8;
  color: #353535;
 }
 
-#store .entry p {
+.entry p {
  margin-top: 0.5em; 
  margin-bottom: 0.8em; 
 }
 
-#store .entry .price_line {
+.entry .price_line {
  clear: both;
  margin-bottom: 0.5em;
 }
 
-#store .entry .add_to_cart {
+.entry .add_to_cart {
   position: relative;
 }
 
-#store .entry  .price {
-  color: #44a;
-  font-weight: bold;
-  margin-right: 2em;
-}
-
-#store .cart_title {
+.cart_title {
   font: 120% bold;
   font-family: Helvetica Neue, Arial, Helvetica sans-serif;
 }
-#store .item_price, #store .total_line {
+.item_price, .total_line {
   text-align: right;
 }
-#store .total_line .total_cell {
+.total_line .total_cell {
   font-weight: bold;
   border-top: 1px solid #595;
 }
@@ -169,6 +194,7 @@ background: #999999;
 border-bottom-right-radius: 5px;
 -moz-border-radius-bottomright: 5px;
 -webkit-border-bottom-right-radius: 5px;
+clear:left;
 }
 #side a {
 font-size: small;
@@ -187,6 +213,7 @@ background-color: transparent;
   left: 0;
   bottom: 0;
   width: 15%;
+  height: auto;
   background-color: #999999;
   border-top-right-radius: 5px;
   -moz-border-radius-topright: 5px;
@@ -231,6 +258,7 @@ background-color: transparent;
   width: 32%;
   float:left;
   margin-right:10px;
+  background-color:#f8f8f8;
 }
 
 #main_right {
@@ -240,30 +268,35 @@ background-color: transparent;
   width: 32%;
   float:left;
   margin-right:0;
+  background-color:#f8f8f8;
 }
 
 /* Navigation */
 
 nav {
   display: block;
-  text-align: center;
-  background-color: #999999;
-}
-
-nav {
   padding: 0;
   white-space: nowrap;
+  width:100%;
 }
 
 nav ul {
   margin: 0;
+  padding: 0;
   line-height: 1.5;
+  text-align:center;
+  background-color: #999999;
+  position:absolute;
+  display: inline-block;
+  left: 0;
+  width:96%;
 }
 
 nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 0;
+  margin: 0;
 }
 
 nav ul li a {
@@ -274,24 +307,25 @@ nav ul li a {
   font-weight: bold;
   font-size:100%;
   font-family: Helvetica Neue, Arial, Helvetica sans-serif;
-  color: #ececec;
+  color: #f8f8f8;
   text-decoration: none;
   background-color: #999999;
+  width:100%;
 }
 
 nav ul li a:hover {
   text-decoration: none;
-  color: #fff;
+  color: #f8f8f8;
   background-color: #353535;
 }
 
 nav ul li a:visited {
-  color: #ececec;
+  color: #f8f8f8;
 }
 
 /* flash notifications */
 .error {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
-.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+.notice {background:#f8f8f86bf;color:#514721;border-color:#ffd324;}
 .success {background:#e6efc2;color:#264409;border-color:#c6d880;}
 .info {background:#d5edf8;color:#205791;border-color:#92cae4;}
 .error a {color:#8a1f11;}
@@ -302,7 +336,7 @@ nav ul li a:visited {
 /* admin signin */
 #admin_view ul { list-style-type: none; display: block; float: right; padding-right: 20px; }
 #admin_view ul li a { color: #ececec; text-decoration: none; }
-#admin_view ul li a:hover { background-color: #FFFFFF; color: #ececec; }
+#admin_view ul li a:hover { background-color: #f8f8f8; color: #ececec; }
 
 ul.users {
   margin-top: 1em;
@@ -317,9 +351,6 @@ ul.users {
   float: left;
 }
 
-a:hover {
-  text-decoration: none;
-}
 
 #footer {width:75%;margin-right:0 auto;margin-left:17%;clear:both;padding:20px 2em 0 20px;}
 
@@ -341,13 +372,94 @@ border:none;
 		margin: 0 auto;
 		}
 
-.weekly a img {
-  width: 100px;
-}
-
-.weekly a:hover img {
-  width: 300px;
-}
 .description {
   margin-top: 10px;
+}
+
+
+/* HTML5 slideshow */
+
+#slideshow{
+	background-color:#F5F5F5;
+	border:0px solid #f8f8f8;
+	height:400px;
+	margin:0;
+	position:relative;
+	width:550px;
+	
+}
+
+#slideshow ul{
+	height:400px;
+	list-style:none outside none;
+	overflow:hidden;
+	position:absolute;
+	width:550px;
+}
+
+#slideshow li{
+	position:absolute;
+	display:none;
+	z-index:10;
+}
+
+#slideshow li:first-child{
+	display:block;
+	z-index:1000;
+}
+
+#slideshow .slideActive{
+	z-index:1000;
+}
+
+#slideshow canvas{
+	display:none;
+	position:absolute;
+	z-index:100;
+}
+
+#slideshow .arrow{
+	height:86px;
+	width:60px;
+	position:absolute;
+	background:url('../images/arrows.png') no-repeat;
+	top:50%;
+	margin-top:-43px;
+	cursor:pointer;
+	z-index:5000;
+}
+
+#slideshow .previous{ background-position:left top;left:0;}
+#slideshow .previous:hover{ background-position:left bottom;}
+
+#slideshow .next{ background-position:right top;right:0;}
+#slideshow .next:hover{ background-position:right bottom;}
+
+/* menu links */
+
+p a:link {
+  color: #353535;
+}
+
+p a:hover {
+  color: #999999;
+}
+
+p a:visited {
+  color: #353535;
+}
+
+.dates td {
+  height:100px;
+  border:1px solid black;
+}
+
+.353535 {
+  color:#353535;
+}
+
+.youtube {
+  float:right;
+  margin-right: 20px;
+  border:2px solid #353535;
 }

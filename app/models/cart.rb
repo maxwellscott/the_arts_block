@@ -1,6 +1,10 @@
 class Cart < ActiveRecord::Base
   has_many :line_items, :dependent => :destroy
 
+  PAYPAL_CERT_PEM = File.read("#{Rails.root}/certs/paypal_cert.pem")  
+  APP_CERT_PEM = File.read("#{Rails.root}/certs/app_cert.pem")  
+  APP_KEY_PEM = File.read("#{Rails.root}/certs/app_key.pem")  
+
   def add_event(event_id)
     current_item = line_items.where(:event_id => event_id).first
     if current_item
@@ -33,7 +37,7 @@ class Cart < ActiveRecord::Base
     line_items.each_with_index do |item, index|  
       values.merge!({  
         "amount_#{index + 1}" => item.event.price,  
-        "item_name_#{index + 1}" => item.event.title,  
+        "item_name_#{index + 1}" => item.event.name,  
         "item_number_#{index + 1}" => item.event.id,  
         "quantity_#{index + 1}" => item.quantity  
       })  

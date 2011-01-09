@@ -4,52 +4,64 @@
 </div>
 <% end %>
 
-<div style="padding-right:12em;width:64%;padding-left:14em;">
-<p style="margin-top:0;padding-top:0;">
-  <b>Performer:</b>
-  <%= @event.performer %>
-</p>
+<div>
 
 <p>
-  <b>Date:</b>
-  <%= @event.date %>
+  <%= link_to "<< back to Calendar", calendar_path %>
 </p>
 
-<p>
-  <b>Time:</b>
-  <%= @event.time %>
-</p>
+<br />
 
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
+<h3 style="color:#646464">
+  <i><%= @event.start_at.strftime("%A, %b %d") %></i>
+</h3>
+<h2>
+  <u><%= link_to @event.name, @event.main_act_url, :class => "353535" %></u>
+</h2>
+<% if @event.opener_one? %>
+<h4><i>with:</i></h4>
+<h2>
+  <%= link_to @event.opener_one, @event.opener_one_url %>
+</h2>
+<% end %>
 
-<p>
-  <b>Image url:</b>
-  <%= @event.image_url %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @event.price %>
-</p>
-
-      <div class="price_line" >
-      <span class="price" >
-        <% if @event.price > 4 && @event.price < 6 %>
+<div id="image_desc">
+  <table>
+  <tr>
+    <td style="vertical-align:top;">
+      <%= link_to image_tag(@event.image_url), @event.image_url %>
+    </td>
+    <td>
+      <p><%= @event.description %></p>
+    </td>
+  </tr>
+  <table>
+  <% if @event.youtube_url? %>
+    <%= content_tag(:embed, '', :src => @event.youtube_url, :class => "youtube") %>
+  <% end %>
+</div>
+<div>
+  <table style="margin-top:-0.5em;">
+    <tr>
+      <td class="price">
+        <%= number_to_currency(@event.door) %>
+      </td>
+      <td>at the door</td>
+    </tr>
+    <tr>
+      <td class="price">
         <%= number_to_currency(@event.price) %>
-        <% elsif @event.price > 6 %>
-        <%= number_to_currency(@event.price) %>
-        <% else %>
-        <%= "no cover" %>
-        <% end %>
-        <% if @event.price > 6 && @event.utc.to_i - Time.now.to_i > 15300 %>
-        <%= button_to 'Add to Cart', line_items_path(:event_id => @event) %>
-        <% end %>
-      </span>
-      </div>
+      </td>
+      <td>online pre-sale</td>
+      <% if @event.price && @event.start_at.to_i - Time.now.to_i > 15300 %>
+      <td style="padding-left:1em"><%= button_to 'Add to Cart', line_items_path(:event_id => @event), :remote => true %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>
 
+<% if User.find_by_id(session[:user_id]) %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+<% end %>
 </div>

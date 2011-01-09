@@ -12,56 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :performer %><br />
-    <%= f.text_field :performer %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :website %><br />
-    <%= f.text_field :website %><br />
+    <%= f.label :main_act_url %><br />
+    <%= f.text_field :main_act_url %><br />
   </div>
   <div class="field">
-    <%= f.label :performertwo %><br />
-    <%= f.text_field :performertwo %>
+    <%= f.label :opener_one %><br />
+    <%= f.text_field :opener_one %>
   </div>
   <div class="field">
-    <%= f.label :sitetwo %><br />
-    <%= f.text_field :sitetwo %><br />
+    <%= f.label :opener_one_url %><br />
+    <%= f.text_field :opener_one_url %><br />
   </div>
   <div class="field">
-    <%= f.label :performerthree %><br />
-    <%= f.text_field :performerthree %>
+    <%= f.label :opener_two %><br />
+    <%= f.text_field :opener_two %>
   </div>
   <div class="field">
-    <%= f.label :sitethree %><br />
-    <%= f.text_field :sitethree %><br />
+    <%= f.label :opener_two_url %><br />
+    <%= f.text_field :opener_two_url %><br />
   </div>
   <div class="field">
-    <%= f.label :performerfour %><br />
-    <%= f.text_field :performerfour %>
+    <%= f.label :start_at %><br />
+    <%= f.text_field :start_at %>
   </div>
   <div class="field">
-    <%= f.label :sitefour %><br />
-    <%= f.text_field :sitefour %><br />
-  </div>
-  <div class="field">
-    <%= f.label :performerfive %><br />
-    <%= f.text_field :performerfive %>
-  </div>
-  <div class="field">
-    <%= f.label :sitefive %><br />
-    <%= f.text_field :sitefive %><br />
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.text_field :date %>
-  </div>
-  <div class="field">
-    <%= f.label :priority %><br />
-    <%= f.text_field :priority %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br />
-    <%= f.text_field :time %>
+    <%= f.label :end_at %><br />
+    <%= f.text_field :end_at %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -72,12 +52,16 @@
     <%= f.text_field :image_url %>
   </div>
   <div class="field">
+    <%= f.label :youtube_url %><br />
+    <%= f.text_field :youtube_url %>
+  </div>
+  <div class="field">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :pushkin %><br />
-    <%= f.check_box :pushkin %><br />
+    <%= f.label :door %><br />
+    <%= f.text_field :door %>
   </div>
   <div class="actions">
     <%= f.submit %>

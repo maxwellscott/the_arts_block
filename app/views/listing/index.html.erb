@@ -20,7 +20,7 @@
   <td></td>
   <td></td>
   <td></td>
-  <td class="weekly"><a href="https://s3.amazonaws.com/theartsblock/Reggae+Night+AB.jpg"><img alt="Reggae+night+ab" src="https://s3.amazonaws.com/theartsblock/Reggae+Night+AB.jpg"/></a></td>
+  <td class="weekly"><a href="https://s3.amazonaws.com/theartsblock/Reggae+Night+AB.jpg"><img style="width:100px;" alt="Reggae+night+ab" src="https://s3.amazonaws.com/theartsblock/Reggae+Night+AB.jpg"/></a></td>
   <td>Becca de Beauport</td>
   <td></td>
 </tr>
@@ -45,9 +45,11 @@
     <div class="description">
       <i><%=sanitize event.description %></i>
     </div>
+    <% if event.youtubeUrl? %>
     <div class="youtube">
     <%= content_tag(:embed, '', :src => event.youtubeUrl) %>
     </div>
+    <% end %>
       <div class="price_line" >
       <span class="price" >
         <% if event.price > 4 && event.price < 6 %>
@@ -63,10 +65,68 @@
       </span>
       </div>
     </div>
+
+    <% if User.find_by_id(session[:user_id]) %>
+      <td class="list_actions" >
+        <%= link_to 'Show', event %><br/>
+        <%= link_to 'Edit', edit_event_path(event) %><br/>
+        <%= link_to 'Destroy', event,
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+      </td>
+    <% end %>
+
   <% end %>
 </div>
 
 <div id="main_right">
   <h1>Live @ The Pushkin <%= image_tag("pushkin.png")%></h1>
-  <h3><i>coming soon...</i><h3>
+  <% @pushkinevents.each do |event| %>
+    <div class="entry" >
+    <%= link_to image_tag(event.image_url), event.image_url %>
+    <h3><u><%= event.date %></u><br /><%= link_to event.performer, event, :method => :get %></h3>
+    <h4><%= link_to event.performertwo, event.sitetwo %></h4>
+    <h4><%= link_to event.performerthree, event.sitethree %></h4>
+    <h4><%= link_to event.performerfour, event.sitefour %></h4>
+    <h4><%= link_to event.performerfive, event.sitefive %></h4>
+    <span><%= event.time %></span>
+    <div class="description">
+      <i><%=sanitize event.description %></i>
+    </div>
+    <% if event.youtubeUrl? %>
+    <div class="youtube">
+    <%= content_tag(:embed, '', :src => event.youtubeUrl) %>
+    </div>
+    <% end %>
+      <div class="price_line" >
+      <span class="price" >
+        <% if event.price > 4 && event.price < 6 %>
+        <%= number_to_currency(event.price) %>
+        <% elsif event.price > 6 %>
+        <%= number_to_currency(event.price) %>
+        <% else %>
+        <%= "no cover" %>
+        <% end %>
+        <% if event.price > 6 && event.utc.to_i - Time.now.to_i > 15300 %>
+        <%= button_to 'Add to Cart', line_items_path(:event_id => event), :remote => true %>
+        <% end %>
+      </span>
+      </div>
+    </div>
+
+    <% if User.find_by_id(session[:user_id]) %>
+      <td class="list_actions" >
+        <%= link_to 'Show', event %><br/>
+        <%= link_to 'Edit', edit_event_path(event) %><br/>
+        <%= link_to 'Destroy', event,
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+      </td>
+    <% end %>
+
+  <% end %>
 </div>
+
+<% if User.find_by_id(session[:user_id]) %>
+<%= link_to 'New event', new_event_path %>
+<% end %>

@@ -1,4 +1,5 @@
-<div class="cart_title" >Your Cart</div>
+<% unless cart.line_items.empty? %>
+<div class="cart-title" >Your Cart</div>
 <table>
   <%= render(cart.line_items) %>
 
@@ -8,4 +9,10 @@
   </tr>
 </table>
 
+<%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
+  <%= hidden_field_tag :cmd, "_s-xclick" %>  
+  <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(thanks_url) %>  
+    <p><%= submit_tag "Checkout" %></p>  
+<% end %>
 <%= button_to 'Empty cart', cart, :method => :delete, :confirm => 'Are you sure?' %>
+<% end %>

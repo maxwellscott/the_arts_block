@@ -1,5 +1,9 @@
 Boxoffice::Application.routes.draw do
 
+  get "calendar/index"
+  match 'calendar',  :to => 'calendar#index'
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
+
   get "cafe/index"
   match 'cafe/index', :to => 'cafe#index'
   match 'cafe', :to => 'cafe#index'
@@ -26,12 +30,6 @@ Boxoffice::Application.routes.draw do
   get "thanks/index"
   match 'thanks/index',  :to => 'thanks#index', :as => 'thanks'
   match 'thanks',  :to => 'thanks#index', :as => 'thanks'
-
-  get "listing/index"
-  match 'listing',  :to => 'listing#index'
-  match 'listing/index',  :to => 'listing#index'
-
-  match 'shows', :to => 'listing#index'
 
   match "/home"      => redirect("http://theartsblock.com")
 

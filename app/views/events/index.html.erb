@@ -1,4 +1,9 @@
-<div id="event_list" >
+<% if flash[:notice] %>
+  <div id="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<div id="event_list">
   <h1>Listing events</h1>
 
   <table>
@@ -7,14 +12,13 @@
 
       <td class="list_description" >
         <dl>
-          <dt><%= event.date %>, <%= event.time %> | <%= event.performer %></dt>
-          <dd><%= truncate(strip_tags(event.description),
-                  :length => 80) %></dd>
+          <dt><%= event.start_at.strftime("%A, %b %d - %I%p") %> | <%= event.name %></dt>
+          <dd><%= "event description here" %></dd>
         </dl>
       </td>
 
       <td>
-        <%= image_tag(event.image_url, :class => 'list_image', :width => 100) %>
+        <%= image_tag("Artsbloc-1.jpg", :class => 'list_image', :width => 100) %>
       </td>
   
       <td class="list_actions" >
@@ -31,4 +35,6 @@
 
 <br />
 
+<% if User.find_by_id(session[:user_id]) %>
 <%= link_to 'New event', new_event_path %>
+<% end %>

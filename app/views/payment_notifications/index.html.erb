@@ -1,0 +1,14 @@
+  <table>
+  <% @payment_notifications.each do |payment_notification| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+
+      <td class="list_description" >
+        <dl>
+          <dt><%= payment_notification.status %></dt>
+          <dd><%= "event description here" %></dd>
+        </dl>
+      </td>
+
+    </tr>
+  <% end %>
+  </table>

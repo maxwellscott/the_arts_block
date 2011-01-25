@@ -11,7 +11,7 @@
 
 <%= form_tag "https://www.paypal.com/cgi-bin/webscr" do %>
   <%= hidden_field_tag :cmd, "_s-xclick" %>  
-  <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(thanks_url) %>  
+  <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(thanks_url, payment_notifications_url) %>  
     <p><%= submit_tag "Checkout" %></p>  
 <% end %>
 <%= button_to 'Empty cart', cart, :method => :delete, :confirm => 'Are you sure?' %>

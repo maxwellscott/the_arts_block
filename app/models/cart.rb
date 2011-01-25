@@ -26,12 +26,12 @@ class Cart < ActiveRecord::Base
 
   def paypal_encrypted(return_url)  
     values = {  
-      :business => 'msprio_1294285223_biz@gmail.com',  
+      :business => "paypal@artsandmusicfactory.com"
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,  
       :invoice => id,  
-      :cert_id => "T4LW7RFGBT4A4",
+      :cert_id => "BYD8H3TQBYY7J",
       :notify_url => thanks_url
     }  
       

@@ -24,7 +24,7 @@ class Cart < ActiveRecord::Base
     line_items.sum(:quantity)
   end
 
-  def paypal_encrypted(return_url)  
+  def paypal_encrypted(return_url, notify_url)  
     values = {  
       :business => "paypal@artsandmusicfactory.com",
       :cmd => '_cart',

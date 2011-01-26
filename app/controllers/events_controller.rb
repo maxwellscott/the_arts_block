@@ -5,7 +5,6 @@ class EventsController < ApplicationController
   # GET /events.xml
   def index
     @events = Event.all
-	@event = Event.find(params[:id])
     
     respond_to do |format|
       format.html # index.html.erb

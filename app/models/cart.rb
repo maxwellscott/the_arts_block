@@ -32,7 +32,8 @@ class Cart < ActiveRecord::Base
       :return => return_url,  
       :invoice => id,  
       :cert_id => "T9U34EC9BZGDA",
-      :notify_url => notify_url
+      :notify_url => notify_url,
+	  :handling_cart => 1
     }  
       
     line_items.each_with_index do |item, index|  

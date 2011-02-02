@@ -170,7 +170,8 @@ a.ec-day-link {
 .ec-event img {
   position: relative;
   top: 20px;
-  left: 5px;  
+  left: 5px;
+  height: 100px;  
 }
 
 .ec-event :hover {

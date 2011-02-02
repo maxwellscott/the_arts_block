@@ -1,0 +1,69 @@
+<% if @cart %>
+<div id="cart">
+  <%= render @cart %>
+</div>
+<% end %>
+
+<div>
+<hr />
+<div class="backbutton">
+<p>
+  <%= link_to "<< back to Calendar", calendar_path %>
+</p>
+</div>
+
+<br />
+
+<h3 style="color:#646464">
+  <i><%= event.start_at.strftime("%A, %b %d | %l:%M%p") %></i>
+</h3>
+<h2>
+  <u><%= link_to @event.name, @event.main_act_url, :class => "353535" %></u>
+</h2>
+<% if @event.opener_one? %>
+<h4><i>with:</i></h4>
+<h2>
+  <%= link_to @event.opener_one, @event.opener_one_url %>
+</h2>
+<% end %>
+
+<div id="image_desc">
+  <table>
+  <tr>
+    <td style="vertical-align:top;">
+      <%= link_to image_tag(@event.image_url), @event.image_url %>
+    </td>
+    <td>
+      <p><%= @event.description %></p>
+    </td>
+  </tr>
+  <table>
+  <% if @event.youtube_url? %>
+    <%= content_tag(:embed, '', :src => @event.youtube_url, :class => "youtube") %>
+  <% end %>
+</div>
+<div>
+  <table style="margin-top:-0.5em;">
+    <tr>
+      <td class="price">
+        <%= number_to_currency(@event.door) %>
+      </td>
+      <td>at the door</td>
+    </tr>
+    <tr>
+      <td class="price">
+        <%= number_to_currency(@event.price) %>
+      </td>
+      <td>online pre-sale</td>
+      <% if @event.price && @event.start_at.to_i - Time.now.to_i > 15300 %>
+      <td style="padding-left:1em"><%= button_to 'Add to Cart', line_items_path(:event_id => @event), :remote => true %></td>
+      <% end %>
+    </tr>
+  </table>
+</div>
+
+<% if User.find_by_id(session[:user_id]) %>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
+<% end %>
+</div>

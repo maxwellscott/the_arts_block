@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <%= stylesheet_link_tag "scaffold" %>
+    <%= stylesheet_link_tag "custom", :media => "all" %>   
+    <%= stylesheet_link_tag "event_calendar", :media => "all" %>    
+    <%= javascript_include_tag :all %>
+  </head>
+  <body>
+  <div id="banner"> 
+    <%= image_tag("logo.png") %>
+  </div>
+  <img id="ur" src="/images/ur.png" />
+  <nav>
+    <ul>
+      <li><%= link_to "HOME", "../" %></li>      
+      <li><%= link_to "EVENTS", calendar_path %></li>
+      <li><%= link_to "THE ARTS BLOCK CAFÉ", cafe_path %></li>
+      <li><%= link_to "GALLERIES", '#' %></li>
+      <li><%= link_to "EDUCATION", '#' %></li>
+      <li><%= link_to "BLOG", '#' %></li>
+    </ul>
+  </nav>
+    <div id="side">
+       <%= link_to 'Directions', "#" %><br />
+       <%= link_to 'About the Block', "#" %><br />
+       <%= link_to 'Contact', "#" %><br />
+       <br />
+       <% if session[:user_id] %>
+       <br />
+       <br />
+       <%= button_to 'Logout', logout_path, :method => :delete %>
+       <% end %>
+    </div>
+    <div style="margin-top:15px;margin-left:18%;margin-right:72px;padding-top:10px;">
+    <%= yield %>
+    </div>
+  </div>
+  <%= debug(params) if Rails.env.development? %>
+  <div id="footer">
+  <div style="width:50%;float:left;">
+  <%= link_to ab, "http://theartsblock.com" %>
+  <%= link_to pushkin, "http://thepushkin.com" %>
+  <%= link_to blog, "http://artsandmusicfactory.com/blog" %>
+  <br />
+  The Arts Block, 289 Main St.
+  <br />
+  The Pushkin, 4 Federal St.
+  <br />
+   Greenfield MA 01301
+  </div>
+  </body>
+</html>

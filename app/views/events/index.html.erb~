@@ -1,0 +1,40 @@
+<% if flash[:notice] %>
+  <div id="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<div id="event_list">
+  <h1>Listing events</h1>
+
+  <table>
+  <% @events.each do |event| %>
+    <tr class="<%= cycle('list_line_odd', 'list_line_even') %>" >
+
+      <td class="list_description" >
+        <dl>
+          <dt><%= event.start_at.strftime("%A, %b %d - %I%p") %> | <%= event.name %></dt>
+          <dd><%= "@event description here" %></dd>
+        </dl>
+      </td>
+
+      <td>
+        <%= image_tag("Artsbloc-1.jpg", :class => 'list_image', :width => 100) %>
+      </td>
+  
+      <td class="list_actions" >
+        <%= link_to 'Show', event %><br/>
+        <%= link_to 'Edit', edit_event_path(event) %><br/>
+        <%= link_to 'Destroy', event,
+                    :confirm => 'Are you sure?',
+                    :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+
+<br />
+
+<% if User.find_by_id(session[:user_id]) %>
+<%= link_to 'New event', new_event_path %>
+<% end %>

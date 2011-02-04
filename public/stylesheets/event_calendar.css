@@ -167,12 +167,6 @@ a.ec-day-link {
   height: 100px;
 }
 
-.ec-event img {
-  position: relative;
-  top: 20px;
-  left: 5px;  
-}
-
 .ec-event :hover {
   /* doesn't look as good as js highlighting */
   /* background-color: #2eac6a; */
@@ -180,6 +174,13 @@ a.ec-day-link {
 
 .ec-event-bg a {
   color: white;
+}
+
+.ec-event-bg img {
+  max-width: 90px;
+  max-height: 100px;
+  position: relative;
+  bottom: 100px;  
 }
 
 /* used to distinguish non-all_day events */

@@ -13,7 +13,7 @@ module CalendarHelper
       :previous_month_text => "<< " + month_link(@shown_month.prev_month),
       :next_month_text => month_link(@shown_month.next_month) + " >>",
       :height => 750,
-      :event_height => 120,
+      :event_height => 125,
     }
   end
 
@@ -21,7 +21,7 @@ module CalendarHelper
     # args is an argument hash containing :event, :day, and :options
     calendar event_calendar_opts do |args|
       event = args[:event]
-      %(<a href="/events/#{event.id}" title="#{h(event.name)}">#{event.name}</a><img src="#{event.image_url}" />)
+      %(<a href="/events/#{event.id}" title="#{h(event.name)}">#{event.name}<img src="#{event.image_url}" /></a>)
     end
   end
 end

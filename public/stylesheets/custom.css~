@@ -88,7 +88,7 @@ pre {
 /* individual event listings */
 
 #image_desc img {
-  width:        100px;
+  width:        200px;
   clear:        none;
   position:     relative;
   left:         0px;
@@ -289,7 +289,7 @@ nav ul {
   position:absolute;
   display: inline-block;
   left: 0;
-  width:96%;
+  width:95%;
 }
 
 nav ul li {
@@ -460,6 +460,6 @@ p a:visited {
 
 .youtube {
   float:right;
-  margin-right: 20px;
+  margin: 15px 20px 0 0;
   border:2px solid #353535;
 }

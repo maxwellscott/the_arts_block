@@ -109,7 +109,7 @@
   color: #444;
   text-align: right;
   padding: 0 5px;
-  line-height: 16px;
+  line-height: 32px;
   border-top: 1px solid #d5d5d5;
   border-left: 1px solid #d5d5d5;
   border-bottom: 1px dotted #bbbbbb;
@@ -179,6 +179,8 @@ a.ec-day-link {
 .ec-event-bg img {
   max-width: 90px;
   max-height: 100px;
+  position: relative;
+  bottom: 100px;  
 }
 
 /* used to distinguish non-all_day events */

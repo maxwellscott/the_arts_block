@@ -289,7 +289,7 @@ nav ul {
   position:absolute;
   display: inline-block;
   left: 0;
-  width:95%;
+  width:96.5%;
 }
 
 nav ul li {
@@ -302,7 +302,7 @@ nav ul li {
 nav ul li a {
   display: inline-block;
   line-height:1.6;
-  padding: 0 4px 1px;
+  padding: 1px 4px 1px;
   margin: 0;
   font-weight: bold;
   font-size:100%;

@@ -15,7 +15,7 @@
 <br />
 
 <h3 style="color:#646464">
-  <i><%= event.start_at.strftime("%A, %b %d | %l:%M%p") %></i>
+  <i><%= @event.start_at.strftime("%A, %b %d | %l:%M%p") %></i>
 </h3>
 <h2>
   <u><%= link_to @event.name, @event.main_act_url, :class => "353535" %></u>

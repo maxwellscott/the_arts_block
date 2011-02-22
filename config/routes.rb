@@ -1,7 +1,7 @@
 Boxoffice::Application.routes.draw do
 
-  get "calendar/index"
-  match 'calendar',  :to => 'calendar#index'
+  get "pages/calendar"
+  match '/calendar', :to => 'pages#calendar'
   match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
   get 'admin' => 'admin#index'

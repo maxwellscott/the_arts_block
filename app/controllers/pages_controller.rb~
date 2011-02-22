@@ -1,0 +1,19 @@
+class PagesController < ApplicationController
+  skip_before_filter :authorize
+  
+  def home
+  end
+
+  def events
+  end
+
+  def galleries
+  end
+
+  def education
+  end
+
+  def blog
+  end
+
+end

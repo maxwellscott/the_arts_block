@@ -42,12 +42,12 @@
     <%= content_tag(:embed, '', :src => @event.youtube_url, :class => "youtube") %>
   <% end %>
 </div>
-<% unless @event.name = "Upper Valley Music Festival" %>
 <div>
+  <% if @event.name ="Upper Valley Music Festival" %>
   <table style="margin-top:-0.5em;">
     <tr>
       <td class="price">
-	<%= number_to_currency(@event.door) %>
+        <%= number_to_currency(@event.door) %>
       </td>
       <td>at the door</td>
     </tr>
@@ -61,8 +61,8 @@
       <% end %>
     </tr>
   </table>
+  <% end %>
 </div>
-<% end %>
 
 <% if User.find_by_id(session[:user_id]) %>
 <%= link_to 'Edit', edit_event_path(@event) %> |

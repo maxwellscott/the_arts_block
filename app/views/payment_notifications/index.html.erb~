@@ -5,9 +5,7 @@
       <td class="list_description" >
         <dl>
           <dt><%= payment_notification.status %></dt>
-	  <dd><%= "event description here" %></dd>
-	  <dd><%= payment_notification.transaction_id %></dd>
-	  <dd><%= payment_notification.cart_id %></dd>
+          <dd><%= "event description here" %></dd>
         </dl>
       </td>
 

@@ -37,7 +37,7 @@
       <p><%=raw @event.description %></p>
     </td>
   </tr>
-  <table>
+  </table>
   <% if @event.youtube_url? %>
     <%= content_tag(:embed, '', :src => @event.youtube_url, :class => "youtube") %>
   <% end %>

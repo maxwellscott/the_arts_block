@@ -37,11 +37,12 @@
       <p><%=raw @event.description %></p>
     </td>
   </tr>
-  <table>
+  </table>
   <% if @event.youtube_url? %>
     <%= content_tag(:embed, '', :src => @event.youtube_url, :class => "youtube") %>
   <% end %>
 </div>
+<% unless @event.name = "Upper Valley Music Festival" %>
 <div>
   <table style="margin-top:-0.5em;">
     <tr>
@@ -60,6 +61,7 @@
       <% end %>
     </tr>
   </table>
+<% end %>
 </div>
 <% if User.find_by_id(session[:user_id]) %>
 <%= link_to 'Edit', edit_event_path(@event) %> |

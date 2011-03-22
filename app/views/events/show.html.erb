@@ -60,6 +60,8 @@
       <% end %>
     </tr>
   </table>
+  <br />
+  <p><i>Seating is first-come, first-served. Doors open an hour before a performance, unless otherwise noted. For further information please email <a href="mailto:bridget@theartsblock.com" style="text-decoration:underline;font-color:blue;">bridget</a>@theartsblock.com or call (413) 774-0150 and leave a message.</i></p>
 </div>
 <% if User.find_by_id(session[:user_id]) %>
 <%= link_to 'Edit', edit_event_path(@event) %> |

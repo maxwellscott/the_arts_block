@@ -30,7 +30,7 @@ class Cart < ActiveRecord::Base
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,  
-      :invoice => card_id,  
+      :invoice => id,  
       :cert_id => "T9U34EC9BZGDA",
       :notify_url => notify_url,
       :handling_cart => 1
@@ -40,7 +40,7 @@ class Cart < ActiveRecord::Base
       values.merge!({  
         "amount_#{index + 1}" => item.event.price,  
         "item_name_#{index + 1}" => item.event.name,  
-        "item_number_#{index + 1}" => item.event.id,  
+        "item_number_#{index + 1}" => item.event.identifier,  
         "quantity_#{index + 1}" => item.quantity  
       })  
     end  

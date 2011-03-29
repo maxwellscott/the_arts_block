@@ -32,9 +32,9 @@
        <%= button_to 'Logout', logout_path, :method => :delete %>
        <% end %>
 		</div>
-		<p style="color:red;"><i>The Arts Block does not ship paper tickets. Please bring a copy of your receipt to the show.</i></p>
     <div style="margin-top:15px;margin-left:18%;margin-right:72px;padding-top:10px;">
-    <%= yield %>
+			<p style="color:red;"><i>The Arts Block does not ship paper tickets. Please bring a copy of your receipt to the show.</i></p>
+			<%= yield %>
     </div>
   </div>
   <%= debug(params) if Rails.env.development? %>

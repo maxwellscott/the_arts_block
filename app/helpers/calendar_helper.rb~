@@ -13,7 +13,7 @@ module CalendarHelper
       :previous_month_text => "<< " + month_link(@shown_month.prev_month),
       :next_month_text => month_link(@shown_month.next_month) + " >>",
       :height => 750,
-      :event_height => 150,
+      :event_height => 120,
     }
   end
 

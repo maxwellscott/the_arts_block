@@ -1,10 +1,6 @@
 class Cart < ActiveRecord::Base
   has_many :line_items, :dependent => :destroy
 
-  PAYPAL_CERT_PEM = File.read("#{Rails.root}/certs/paypal_cert.pem")  
-  APP_CERT_PEM = File.read("#{Rails.root}/certs/app_cert.pem")  
-  APP_KEY_PEM = File.read("#{Rails.root}/certs/app_key.pem")  
-
   def add_event(event_id)
     current_item = line_items.where(:event_id => event_id).first
     if current_item
@@ -30,7 +26,7 @@ class Cart < ActiveRecord::Base
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,  
-      :invoice => cart_id,  
+      :invoice => id,  
       :cert_id => "T9U34EC9BZGDA",
       :notify_url => notify_url,
       :handling_cart => 1

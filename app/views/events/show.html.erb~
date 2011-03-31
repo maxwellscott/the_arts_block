@@ -54,8 +54,8 @@
       <td class="price">
         <%= number_to_currency(@event.price) %>
       </td>
-      <td>online pre-sale</td>
-      <% if @event.start_at.to_i - Time.now.to_i > 80000  %>
+      <td>online pre-sale <%= @event.start_at.to_i %>&nbsp;<%= Time.now.utc.to_i %><br /><%= @event.start_at %>&nbsp;<%= Time.now.utc %></td>
+      <% if @event.start_at.to_i - Time.now.to_i > 75600 %>
       <td style="padding-left:1em"><%= button_to 'Add to Cart', line_items_path(:event_id => @event), :remote => true %></td>
       <% end %>
     </tr>

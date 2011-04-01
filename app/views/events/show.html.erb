@@ -50,15 +50,15 @@
       </td>
       <td>at the door</td>
     </tr>
+    <% if @event.start_at.to_i - Time.now.to_i > 75600 %>
     <tr>
       <td class="price">
         <%= number_to_currency(@event.price) %>
       </td>
       <td>online pre-sale</td>
-      <% if @event.start_at.to_i - Time.now.to_i > 75600 %>
       <td style="padding-left:1em"><%= button_to 'Add to Cart', line_items_path(:event_id => @event), :remote => true %></td>
-      <% end %>
     </tr>
+    <% end %>
   </table>
   <br />
   <p><i>Seating is first-come, first-served. Doors open an hour before a performance, unless otherwise noted. For further information please email <a href="mailto:bridget@theartsblock.com" style="text-decoration:underline;font-color:blue;">bridget</a>@theartsblock.com or call (413) 774-0150 and leave a message.</i></p>

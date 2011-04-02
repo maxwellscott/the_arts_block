@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag "scaffold" %>
     <%= stylesheet_link_tag "custom", :media => "all" %>   
     <%= stylesheet_link_tag "event_calendar", :media => "all" %>    
-    <%= javascript_include_tag :all %>
+		<%= javascript_include_tag :all %>
   </head>
   <body>
   <div id="banner"> 
@@ -15,22 +15,23 @@
   <nav>
     <ul>
       <li><%= link_to "HOME", "../" %></li>      
-      <li><%= link_to "EVENTS", calendar_path %></li>
+			<li><%= link_to "EVENTS", calendar_path %></li>
+			<li><%= link_to "CAFÉ" 'http://www.theartsblock.com/cafe.html' %></li>
       <li><%= link_to "GALLERIES", 'http://www.theartsblock.com/galleries.html' %></li>
       <li><%= link_to "EDUCATION", 'http://www.theartsblock.com/education.html' %></li>
       <li><%= link_to "BLOG", 'http://artsandmusicfactory.com/blog/' %></li>
     </ul>
   </nav>
     <div id="side">
-       <%= link_to 'Directions', "#" %><br />
-       <%= link_to 'About the Block', "#" %><br />
-       <%= link_to 'Contact', "#" %><br />
-       <br />
-       <% if session[:user_id] %>
-       <br />
-       <br />
-       <%= button_to 'Logout', logout_path, :method => :delete %>
-       <% end %>
+      <%= link_to 'Directions', "#" %><br />
+      <%= link_to 'About the Block', "#" %><br />
+      <%= link_to 'Contact', "#" %><br />
+      <br />
+      <% if session[:user_id] %>
+      <br />
+      <br />
+      <%= button_to 'Logout', logout_path, :method => :delete %>
+      <% end %>
 		</div>
     <div style="margin-top:15px;margin-left:18%;margin-right:72px;padding-top:10px;">
 			<p style="color:red;"><i>The Arts Block does not ship paper tickets. Please bring a copy of your receipt to the show.</i></p>

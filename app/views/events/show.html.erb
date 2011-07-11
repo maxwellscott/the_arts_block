@@ -50,7 +50,7 @@
       </td>
       <td>at the door</td>
 		</tr>
-    <% if @event.start_at.to_i - Time.now.to_i > 3600 %>
+    <% if @event.start_at.to_i - Time.now.to_i && @event.price > 3600 %>
     <tr>
       <td class="price">
         <%= number_to_currency(@event.price) %>

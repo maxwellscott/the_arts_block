@@ -21,10 +21,15 @@
   <u><%= link_to @event.name, @event.main_act_url, :class => "353535" %></u>
 </h2>
 <% if @event.opener_one? %>
-<h4><i>with:</i></h4>
-<h2>
-  <%= link_to @event.opener_one, @event.opener_one_url %>
-</h2>
+	<h4><i>with:</i></h4>
+	<h2>
+  	<%= link_to @event.opener_one, @event.opener_one_url %>
+	</h2>
+	<% if @event.opener_two? %>
+	<h2>
+		<%= link_to @event.opener_two, @event.opener_two_url %>
+	</h2>
+	<% end %>
 <% end %>
 
 <div id="image_desc">

@@ -5,7 +5,7 @@
     <%= stylesheet_link_tag "scaffold" %>
     <%= stylesheet_link_tag "custom", :media => "all" %>   
     <%= stylesheet_link_tag "event_calendar", :media => "all" %>    
-		<%= javascript_include_tag :defaults %>
+		<%= javascript_include_tag :all %>
   </head>
   <body>
   <div id="banner"> 
@@ -23,7 +23,7 @@
     </ul>
   </nav>
     <div id="side">
-      <%= link_to 'Directions', "#" %><br />
+      <%= link_to 'Location', "http://artsandmusicfactory.com/info.html" %><br />
       <%= link_to 'About the Block', "#" %><br />
       <%= link_to 'Contact', "#" %><br />
       <br />

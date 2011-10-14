@@ -23,9 +23,9 @@
     </ul>
   </nav>
     <div id="side">
-      <%= link_to 'Location', "http://artsandmusicfactory.com/info.html" %><br />
-      <%= link_to 'About the Block', "#" %><br />
-      <%= link_to 'Contact', "#" %><br />
+      <%= link_to 'Directions', "http://maps.google.com/maps?saddr=YOUR_ADDRESS&daddr=289%20Main%20Street,%20Greenfield,%20MA%2001301-3203" %><br />
+      <%= link_to 'About the Block', "http://theartsblock.com/contact.html" %><br />
+      <%= link_to 'Contact', "http://theartsblock.com/contact.html" %><br />
       <br />
       <% if session[:user_id] %>
       <br />
